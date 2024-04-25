@@ -1,0 +1,9 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.5 13V10C4.5 9.72386 4.72386 9.5 5 9.5H15C15.2761 9.5 15.5 9.72386 15.5 10V13C15.5 13.2761 15.2761 13.5 15 13.5H5C4.72386 13.5 4.5 13.2761 4.5 13Z" fill="var(--mw-icon-background-default-light-gray, #F5F5F5)" stroke="var(--mw-icon-border-default-gray, #616161)"/>
+<rect x="13" y="11" width="1" height="1" fill="var(--mw-icon-glyph-content-green, #008014)"/>
+<path d="M4.5 9V6C4.5 5.72386 4.72386 5.5 5 5.5H15C15.2761 5.5 15.5 5.72386 15.5 6V9C15.5 9.27614 15.2761 9.5 15 9.5H5C4.72386 9.5 4.5 9.27614 4.5 9Z" fill="var(--mw-icon-background-default-light-gray, #F5F5F5)" stroke="var(--mw-icon-border-default-gray, #616161)"/>
+<rect x="13" y="7" width="1" height="1" fill="var(--mw-icon-glyph-content-green, #008014)"/>
+<path d="M4.5 5V2C4.5 1.72386 4.72386 1.5 5 1.5H15C15.2761 1.5 15.5 1.72386 15.5 2V5C15.5 5.27614 15.2761 5.5 15 5.5H5C4.72386 5.5 4.5 5.27614 4.5 5Z" fill="var(--mw-icon-background-default-light-gray, #F5F5F5)" stroke="var(--mw-icon-border-default-gray, #616161)"/>
+<rect x="13" y="3" width="1" height="1" fill="var(--mw-icon-glyph-content-green, #008014)"/>
+<path d="M0.5 7C0.5 6.72386 0.723858 6.5 1 6.5H4.08579C4.351 6.5 4.60536 6.60536 4.79289 6.79289L6.20711 8.20711C6.39464 8.39464 6.649 8.5 6.91421 8.5H10C10.2761 8.5 10.5 8.72386 10.5 9V14C10.5 14.2761 10.2761 14.5 10 14.5H1C0.723858 14.5 0.5 14.2761 0.5 14V7Z" fill="var(--mw-icon-background-light-yellow, #FFF5BC)" stroke="#674C06"/>
+<use href="#folder_database"/></svg>

@@ -1,0 +1,12 @@
+{
+  "_schemaVersion": "1.0.0",
+  "dilateMatrix":
+  {
+     "inputs":
+     [
+        {"name":"type", "kind":"ordered", "type":["char", "choices={'line','cross','star','rect','circ','diamond'}"]},
+        {"name":"n", "kind":"ordered", "type":["numeric"]},
+        {"name":"feature", "kind":"ordered", "type":["numeric"]}
+     ]
+  }
+}

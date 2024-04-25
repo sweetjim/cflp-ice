@@ -1,0 +1,139 @@
+function [y,t,details]=wavemaker(N,varargin)
+%% WAVEMAKER generates waveforms for use within the wavemaker LabView program
+% Parameters:
+%   N           -   [double]
+%                   buoyancy frequency [rad/s]
+%   'theta'     -   [double]
+%                   wave angle [deg]
+%   'fr'        -   [double]
+%                   lateral Froude number
+%   'amplitude' -   [double]
+%                   wave amplitude (mm)
+%   'export'    -   [char]
+%                   exporting routine
+%   'label'     -   [string]
+%                   export label prefix e.g. 'folder/filename'
+%% Inputs
+theta       = []; % wrt horizontal
+fr          = [];
+omega       = [];
+amplitude   = [];
+export      = false;
+label       = [];
+parseInput(varargin)
+
+%% Assumed geometry
+k0 = 2*pi/sqrt(8e-2);
+
+if ~isempty(amplitude)
+    fr = (amplitude*1e-3)*k0/N;
+else
+    amplitude = fr*N/k0*1e3;
+end
+
+if numel(amplitude)>1
+    fprintf('Detected: amplitude parameter space\n')
+    for i=1:numel(amplitude)
+       wavemaker(N,'omega',omega,'theta',theta,'amplitude',amplitude(i),'export','label',label);
+    end
+    return
+end
+%% Input
+% theta = @(N,omega) rad2deg(asin(omega/N));
+if isempty(omega)
+    omega   = N*sin(deg2rad(theta));
+elseif isempty(theta)
+    theta   = rad2deg(asin(omega/N));
+end
+period  = 2*pi/omega;
+kappa   = sqrt(1+theta^2);
+cg      = N^2/kappa/omega*cos(theta)*sin(theta)*[sin(theta) -cos(theta)];
+
+
+% decay factor
+alpha = nu*
+decay = exp(-alpha*x);
+
+%% Time resolution
+% max 600 pts
+t_res   = [50 100 200 500]*1e-3; % 50ms precision
+t_res   = t_res(find(round(period./t_res)<600,1,'first'));
+
+t       = linspace(0,round(period,3),period/t_res);
+y       = sin(omega*t)*amplitude;%/(24.5/4);
+y(end)  = 0;
+plot(t,y,'.')
+shg
+%%
+details             = struct;
+details.theta       = theta;
+details.omega       = omega;
+details.N           = N;
+details.amplitude   = amplitude;
+details.fr          = fr;
+details.period      = period;
+details.t_res       = t_res;
+details.decay       = decay;
+
+fprintf('\n')
+fprintf('Theta:\t\t\t%.2f (deg wrt. hztl)\nOmega:\t\t\t%.2f (rad/s)\n',theta,omega)
+fprintf('Omega/N:\t\t%.2f\n',omega/N)
+fprintf('Froude number:\t%.2f\nAmplitude:\t\t%.2f (mm)\n',fr,amplitude)
+fprintf('Period:\t\t\t%.2f (s)\ndt:\t\t\t\t%.2f (s)\n',period,t_res)
+%% Output
+fileloc = 'IWs\wavemaker_profiles\';
+if ~isempty(label)
+    if contains(label,'today')
+        label = strrep(label,'today',datestr(datetime('today'),'DD_mm_YY'));
+    end
+    if contains(label,{'\','/'})
+        fileloc = fullfile(fileloc,label);
+        if ~isfolder(fileloc)
+            mkdir(fileloc)
+        end
+    end
+end
+
+tag = strcat(strrep(sprintf('N_%.2frads-theta_%.2fdeg-amp_%.1fmm-Fr_%.2f-dt_%ims',...
+        N,theta,amplitude,fr,t_res*1e3),'.','_'),'.csv');
+tag     = [strcat(datestr(datetime('today'),'yy_mm_dd'),'#') tag];
+filename = fullfile(fileloc,tag);
+if export
+    writetable(...
+        table(y'),...
+        filename,...
+        'WriteVariableNames',false)
+end
+if nargout==0
+    clear y t details
+    return
+end
+%% functions
+function parseInput(varargin)
+        m = 1;
+        items = varargin{:};
+        for k=1:length(items)
+            switch items{m}
+                case 'omega'
+                    omega = namevalue;
+                case 'theta'
+                    theta = namevalue;
+                case 'amplitude'
+                    amplitude = namevalue;
+                case {'froude','fr'}
+                    fr  = namevalue;
+                case 'export'
+                    export = true;
+                case 'label'
+                    label = namevalue;
+            end
+            m = m+1;
+            if m>length(items);break;end
+        end
+        function out = namevalue
+            out = items{m+1};
+            m   = m+1;
+        end
+    end
+end
+

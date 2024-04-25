@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addonCore>
+  <label>BASLER GenTL Producer Drivers for USB3 cameras</label>
+  <version>1.0.0.0</version>
+  <type>zip</type>
+  <identifier>a267e907-1c38-4589-be68-1867784732be</identifier>
+  <createdBy name="cr"/>
+  <image>resources/screenshot.png</image>
+</addonCore>

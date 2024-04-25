@@ -1,0 +1,6 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.5 13.5V2.5H15.5V13.5H0.5Z" fill="var(--mw-icon-background-default-white, #FFFFFF)" stroke="var(--mw-icon-border-default-gray, #616161)" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M2.5 11.5V4.5H13.5V11.5H2.5Z" stroke="var(--mw-icon-glyph-content-gray, #616162)" stroke-linecap="square" stroke-linejoin="round"/>
+<circle cx="11" cy="7" r="1" fill="var(--mw-icon-glyph-content-gray, #616162)"/>
+<path d="M13 9.5H9L7.5 8L6.5 9L4 6.5L3 7.5" stroke="var(--mw-icon-glyph-content-gray, #616162)" stroke-linecap="square" stroke-linejoin="round"/>
+<use href="#image"/></svg>

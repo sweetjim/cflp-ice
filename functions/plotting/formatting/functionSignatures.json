@@ -1,0 +1,59 @@
+{
+  "_schemaVersion": "1.0.0",
+ 
+  "addColorbar":
+    {
+        "inputs":
+        [
+            {"name":"latex", "kind":"ordered",   "type":"char"},
+            {"name":"nocolorbar", "kind":"ordered",   "type":"char"},
+            {"name":"invert", "kind":"ordered",   "type":"char"},
+            {"name":"flip", "kind":"ordered",   "type":"char"},
+            {"name":"lineplot", "kind":"ordered",   "type":"char"},
+            {"name":"logscale", "kind":"ordered",   "type":"char"},
+            {"name":"reverse", "kind":"ordered",   "type":"char"},
+            {"name":"ax","kind":"namevalue","type":"@ishandle"},
+            {"name":"pivot","kind":"namevalue", "type":["numeric","choices={0}"]},
+            {"name":"levels","kind":"namevalue",   "type":["numeric",">0","choices={3,5,10}"]},
+            {"name":"cmap","kind":"namevalue", "type":["char","choices={'thermal','balance','haline','delta','solar','curl','ice','diff','gray','tarn','oxy','deep','dense','phase','algae','matter','turbid','topo','speed','amp','tempo','rain','imfuse','balance','curl','diff','tarn','parula','jet','hsv','hot','cool','spring','spring','summer','autumn','winter','gray','bone','copper','pink','lines','colorcube','prism','flag','white'}"]},
+            {"name":"fs","kind":"namevalue","type":["numeric",">0","choices={8,10,12,15}"]},
+            {"name":"title","kind":"namevalue","type":"char"},
+            {"name":"limits","kind":"namevalue","type":"numeric"},
+            {"name":"location","kind":"namevalue","type":["char","choices={'north','south','east','west','northeast','northwest','southeast','southwest','northeastoutside','northwestoutside','southeastoutside','southwestoutside','best','bestoutside','layout','none'}"]}
+        ]
+    },
+    "addlabels":
+    {
+        "inputs":
+        [
+            {"tuple":
+             [
+                 {"name":"append","kind":"ordered","type":"char"},
+                 {"name":"array","kind":"ordered","type":"char"}
+             ],"repeating":false
+            },
+            {"name":"fs","kind":"namevalue","type":["numeric",">0"]},
+            {"name":"c","kind":"namevalue","type":"char"},
+            {"name":"x","kind":"namevalue","type":"char"},
+            {"name":"y","kind":"namevalue","type":"char"},
+            {"name":"z","kind":"namevalue","type":"char"},
+            {"name":"title","kind":"namevalue","type":"char"}
+        ]
+    },
+     "out2latex":
+    {
+        "inputs":
+        [
+            {"name":"folderpath",      "kind":"required",  "type":["folder"]},
+            {"name":"filename",        "kind":"required",  "type":["char"],    "purpose":"Filename"},
+            {"name":"type",            "kind":"namevalue", "type":["char","choices={'png','tiff','jpg'}"]},
+            {"name":"res",             "kind":"namevalue", "type":["numeric",">0","choices={300,600,900}"]},
+            {"tuple":
+             [
+                 {"name":"istransparent",       "kind":"ordered",   "type":["char","choices={'transparent'}"]},
+                 {"name":"isfulltransparent",   "kind":"ordered",   "type":["char","choices={'fulltransparent'}"]}
+             ],"repeating":false
+            }
+        ]
+    }
+}

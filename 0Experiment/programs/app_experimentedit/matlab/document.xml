@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body><w:p><w:pPr><w:pStyle w:val="code"/></w:pPr><w:r><w:t><![CDATA[classdef app_experiment < matlab.apps.AppBase
+
+    % Properties that correspond to app components
+    properties (Access = public)
+        IceexperimentsUIFigure   matlab.ui.Figure
+        GridLayout               matlab.ui.container.GridLayout
+        LeftPanel                matlab.ui.container.Panel
+        GridLayout2              matlab.ui.container.GridLayout
+        RightPanel               matlab.ui.container.Panel
+        GridLayout3              matlab.ui.container.GridLayout
+        TabGroup                 matlab.ui.container.TabGroup
+        DetailsTab               matlab.ui.container.Tab
+        GridLayout4              matlab.ui.container.GridLayout
+        Ta                       matlab.ui.control.NumericEditField
+        kgmLabel_3               matlab.ui.control.Label
+        rhoav_label              matlab.ui.control.Label
+        sav_label                matlab.ui.control.Label
+        N                        matlab.ui.control.NumericEditField
+        kgmLabel_2               matlab.ui.control.Label
+        AverageLabel             matlab.ui.control.Label
+        rhomax                   matlab.ui.control.NumericEditField
+        smax                     matlab.ui.control.NumericEditField
+        MaximumLabel             matlab.ui.control.Label
+        MinimumLabel             matlab.ui.control.Label
+        rhomin                   matlab.ui.control.NumericEditField
+        kgmLabel                 matlab.ui.control.Label
+        smin                     matlab.ui.control.NumericEditField
+        SLabel                   matlab.ui.control.Label
+        DatetoDatePicker         matlab.ui.control.DatePicker
+        DatetoDatePickerLabel    matlab.ui.control.Label
+        DatefromDatePicker       matlab.ui.control.DatePicker
+        DatefromDatePickerLabel  matlab.ui.control.Label
+        CommentsTextArea         matlab.ui.control.TextArea
+        CommentsTextAreaLabel    matlab.ui.control.Label
+        ResultsTab               matlab.ui.container.Tab
+        GridLayout5_2            matlab.ui.container.GridLayout
+        DesignTab                matlab.ui.container.Tab
+        GridLayout5              matlab.ui.container.GridLayout
+        CameraTab                matlab.ui.container.Tab
+        GridLayout6              matlab.ui.container.GridLayout
+        InternalWaveTab          matlab.ui.container.Tab
+        GridLayout5_3            matlab.ui.container.GridLayout
+        StratificationTab        matlab.ui.container.Tab
+        GridLayout5_4            matlab.ui.container.GridLayout
+    end
+
+    % Properties that correspond to apps with auto-reflow
+    properties (Access = private)
+        onePanelWidth = 576;
+    end
+
+    
+    properties (Access = private)
+        node
+        selection
+        files
+        root {mustBeFolder(root)}='..\Data\ablation_images\';
+        experiment
+    end
+    
+    methods (Access = public)
+        %% Tab update
+        function updateDetails(app)
+            
+        end
+        function updateResults(app)
+            
+        end
+        function updateDesign(app)
+            
+        end
+
+    end
+    
+
+    % Callbacks that handle component events
+    methods (Access = private)
+
+        % Code that executes after component creation
+        function startupFcn(app)
+            app.uiFileSystem.root = app.root;
+            app.uiFileSystem.buildTree;
+            app.experiment = labExperiment;
+        end
+
+        % Callback function
+        function changeDir(app, event)
+            % update
+            app.root        = app.uiFileSystem.root;
+            app.selection   = app.uiFileSystem.SelectedPath;
+            app.node        = app.uiFileSystem.SelectedNode;
+            app.files       = app.uiFileSystem.files;
+
+            % search for experimentdata files
+            matches = dir(fullfile(app.selection,['*' app.experiment.savetag '.mat']));
+            if ~isempty(matches)
+                app.experiment=app.experiment.loadExperiment(matches(1));
+            end
+        end
+
+        % Selection change function: TabGroup
+        function tabSelection(app, event)
+            selectedTab = app.TabGroup.SelectedTab;
+            switch selectedTab
+                case app.DetailsTab
+                    updateDetails(app)
+                case app.ResultsTab
+                    updateResults(app)
+                case app.DesignTab
+                    updateDesign(app)
+            end
+        end
+
+        % Changes arrangement of the app based on UIFigure width
+        function updateAppLayout(app, event)
+            currentFigureWidth = app.IceexperimentsUIFigure.Position(3);
+            if(currentFigureWidth <= app.onePanelWidth)
+                % Change to a 2x1 grid
+                app.GridLayout.RowHeight = {479, 479};
+                app.GridLayout.ColumnWidth = {'1x'};
+                app.RightPanel.Layout.Row = 2;
+                app.RightPanel.Layout.Column = 1;
+            else
+                % Change to a 1x2 grid
+                app.GridLayout.RowHeight = {'1x'};
+                app.GridLayout.ColumnWidth = {293, '1x'};
+                app.RightPanel.Layout.Row = 1;
+                app.RightPanel.Layout.Column = 2;
+            end
+        end
+    end
+
+    % Component initialization
+    methods (Access = private)
+
+        % Create UIFigure and components
+        function createComponents(app)
+
+            % Create IceexperimentsUIFigure and hide until all components are created
+            app.IceexperimentsUIFigure = uifigure('Visible', 'off');
+            app.IceexperimentsUIFigure.AutoResizeChildren = 'off';
+            app.IceexperimentsUIFigure.Position = [100 100 883 479];
+            app.IceexperimentsUIFigure.Name = 'Ice experiments';
+            app.IceexperimentsUIFigure.SizeChangedFcn = createCallbackFcn(app, @updateAppLayout, true);
+
+            % Create GridLayout
+            app.GridLayout = uigridlayout(app.IceexperimentsUIFigure);
+            app.GridLayout.ColumnWidth = {293, '1x'};
+            app.GridLayout.RowHeight = {'1x'};
+            app.GridLayout.ColumnSpacing = 0;
+            app.GridLayout.RowSpacing = 0;
+            app.GridLayout.Padding = [0 0 0 0];
+            app.GridLayout.Scrollable = 'on';
+
+            % Create LeftPanel
+            app.LeftPanel = uipanel(app.GridLayout);
+            app.LeftPanel.Layout.Row = 1;
+            app.LeftPanel.Layout.Column = 1;
+
+            % Create GridLayout2
+            app.GridLayout2 = uigridlayout(app.LeftPanel);
+            app.GridLayout2.ColumnWidth = {'1x'};
+            app.GridLayout2.RowHeight = {'1x'};
+
+            % Create RightPanel
+            app.RightPanel = uipanel(app.GridLayout);
+            app.RightPanel.Layout.Row = 1;
+            app.RightPanel.Layout.Column = 2;
+
+            % Create GridLayout3
+            app.GridLayout3 = uigridlayout(app.RightPanel);
+            app.GridLayout3.ColumnWidth = {'1x'};
+            app.GridLayout3.RowHeight = {'1x'};
+            app.GridLayout3.Padding = [0 0 0 0];
+
+            % Create TabGroup
+            app.TabGroup = uitabgroup(app.GridLayout3);
+            app.TabGroup.SelectionChangedFcn = createCallbackFcn(app, @tabSelection, true);
+            app.TabGroup.Layout.Row = 1;
+            app.TabGroup.Layout.Column = 1;
+
+            % Create DetailsTab
+            app.DetailsTab = uitab(app.TabGroup);
+            app.DetailsTab.Title = 'Details';
+
+            % Create GridLayout4
+            app.GridLayout4 = uigridlayout(app.DetailsTab);
+            app.GridLayout4.ColumnWidth = {120, 120, 120, 120};
+            app.GridLayout4.RowHeight = {25, 25, 25, 25, 25, 25, 25, 25, 25, '1x', 100};
+
+            % Create CommentsTextAreaLabel
+            app.CommentsTextAreaLabel = uilabel(app.GridLayout4);
+            app.CommentsTextAreaLabel.HorizontalAlignment = 'right';
+            app.CommentsTextAreaLabel.VerticalAlignment = 'top';
+            app.CommentsTextAreaLabel.Layout.Row = 11;
+            app.CommentsTextAreaLabel.Layout.Column = 1;
+            app.CommentsTextAreaLabel.Text = 'Comments';
+
+            % Create CommentsTextArea
+            app.CommentsTextArea = uitextarea(app.GridLayout4);
+            app.CommentsTextArea.Layout.Row = 11;
+            app.CommentsTextArea.Layout.Column = [2 4];
+
+            % Create DatefromDatePickerLabel
+            app.DatefromDatePickerLabel = uilabel(app.GridLayout4);
+            app.DatefromDatePickerLabel.HorizontalAlignment = 'right';
+            app.DatefromDatePickerLabel.Layout.Row = 1;
+            app.DatefromDatePickerLabel.Layout.Column = 1;
+            app.DatefromDatePickerLabel.Text = 'Date (from)';
+
+            % Create DatefromDatePicker
+            app.DatefromDatePicker = uidatepicker(app.GridLayout4);
+            app.DatefromDatePicker.Layout.Row = 1;
+            app.DatefromDatePicker.Layout.Column = 2;
+
+            % Create DatetoDatePickerLabel
+            app.DatetoDatePickerLabel = uilabel(app.GridLayout4);
+            app.DatetoDatePickerLabel.HorizontalAlignment = 'right';
+            app.DatetoDatePickerLabel.Layout.Row = 1;
+            app.DatetoDatePickerLabel.Layout.Column = 3;
+            app.DatetoDatePickerLabel.Text = 'Date (to)';
+
+            % Create DatetoDatePicker
+            app.DatetoDatePicker = uidatepicker(app.GridLayout4);
+            app.DatetoDatePicker.Layout.Row = 1;
+            app.DatetoDatePicker.Layout.Column = 4;
+
+            % Create SLabel
+            app.SLabel = uilabel(app.GridLayout4);
+            app.SLabel.HorizontalAlignment = 'right';
+            app.SLabel.Layout.Row = 3;
+            app.SLabel.Layout.Column = 1;
+            app.SLabel.Text = 'Sₐ (‰)';
+
+            % Create smin
+            app.smin = uieditfield(app.GridLayout4, 'numeric');
+            app.smin.Layout.Row = 3;
+            app.smin.Layout.Column = 2;
+
+            % Create kgmLabel
+            app.kgmLabel = uilabel(app.GridLayout4);
+            app.kgmLabel.HorizontalAlignment = 'right';
+            app.kgmLabel.Layout.Row = 4;
+            app.kgmLabel.Layout.Column = 1;
+            app.kgmLabel.Text = 'ρₐ (kg m⁻³)';
+
+            % Create rhomin
+            app.rhomin = uieditfield(app.GridLayout4, 'numeric');
+            app.rhomin.Limits = [960 1100];
+            app.rhomin.Layout.Row = 4;
+            app.rhomin.Layout.Column = 2;
+            app.rhomin.Value = 999.8426;
+
+            % Create MinimumLabel
+            app.MinimumLabel = uilabel(app.GridLayout4);
+            app.MinimumLabel.HorizontalAlignment = 'center';
+            app.MinimumLabel.VerticalAlignment = 'bottom';
+            app.MinimumLabel.Layout.Row = 2;
+            app.MinimumLabel.Layout.Column = 2;
+            app.MinimumLabel.Text = 'Minimum';
+
+            % Create MaximumLabel
+            app.MaximumLabel = uilabel(app.GridLayout4);
+            app.MaximumLabel.HorizontalAlignment = 'center';
+            app.MaximumLabel.VerticalAlignment = 'bottom';
+            app.MaximumLabel.Layout.Row = 2;
+            app.MaximumLabel.Layout.Column = 3;
+            app.MaximumLabel.Text = 'Maximum';
+
+            % Create smax
+            app.smax = uieditfield(app.GridLayout4, 'numeric');
+            app.smax.Layout.Row = 3;
+            app.smax.Layout.Column = 3;
+
+            % Create rhomax
+            app.rhomax = uieditfield(app.GridLayout4, 'numeric');
+            app.rhomax.Limits = [960 1100];
+            app.rhomax.Layout.Row = 4;
+            app.rhomax.Layout.Column = 3;
+            app.rhomax.Value = 999.8426;
+
+            % Create AverageLabel
+            app.AverageLabel = uilabel(app.GridLayout4);
+            app.AverageLabel.HorizontalAlignment = 'center';
+            app.AverageLabel.VerticalAlignment = 'bottom';
+            app.AverageLabel.Layout.Row = 2;
+            app.AverageLabel.Layout.Column = 4;
+            app.AverageLabel.Text = 'Average';
+
+            % Create kgmLabel_2
+            app.kgmLabel_2 = uilabel(app.GridLayout4);
+            app.kgmLabel_2.HorizontalAlignment = 'right';
+            app.kgmLabel_2.Layout.Row = 5;
+            app.kgmLabel_2.Layout.Column = 1;
+            app.kgmLabel_2.Text = 'N (rad s⁻¹)';
+
+            % Create N
+            app.N = uieditfield(app.GridLayout4, 'numeric');
+            app.N.Limits = [0 Inf];
+            app.N.Layout.Row = 5;
+            app.N.Layout.Column = 4;
+
+            % Create sav_label
+            app.sav_label = uilabel(app.GridLayout4);
+            app.sav_label.HorizontalAlignment = 'right';
+            app.sav_label.Layout.Row = 3;
+            app.sav_label.Layout.Column = 4;
+            app.sav_label.Text = '';
+
+            % Create rhoav_label
+            app.rhoav_label = uilabel(app.GridLayout4);
+            app.rhoav_label.HorizontalAlignment = 'right';
+            app.rhoav_label.Layout.Row = 4;
+            app.rhoav_label.Layout.Column = 4;
+            app.rhoav_label.Text = '';
+
+            % Create kgmLabel_3
+            app.kgmLabel_3 = uilabel(app.GridLayout4);
+            app.kgmLabel_3.HorizontalAlignment = 'right';
+            app.kgmLabel_3.Layout.Row = 6;
+            app.kgmLabel_3.Layout.Column = 1;
+            app.kgmLabel_3.Text = 'Tₐ (rad s⁻¹)';
+
+            % Create Ta
+            app.Ta = uieditfield(app.GridLayout4, 'numeric');
+            app.Ta.Limits = [0 Inf];
+            app.Ta.Layout.Row = 6;
+            app.Ta.Layout.Column = 4;
+
+            % Create ResultsTab
+            app.ResultsTab = uitab(app.TabGroup);
+            app.ResultsTab.Title = 'Results';
+
+            % Create GridLayout5_2
+            app.GridLayout5_2 = uigridlayout(app.ResultsTab);
+            app.GridLayout5_2.ColumnWidth = {'1x'};
+            app.GridLayout5_2.RowHeight = {'1x'};
+
+            % Create DesignTab
+            app.DesignTab = uitab(app.TabGroup);
+            app.DesignTab.Title = 'Design';
+
+            % Create GridLayout5
+            app.GridLayout5 = uigridlayout(app.DesignTab);
+            app.GridLayout5.ColumnWidth = {'1x'};
+            app.GridLayout5.RowHeight = {'1x'};
+
+            % Create CameraTab
+            app.CameraTab = uitab(app.TabGroup);
+            app.CameraTab.Title = 'Camera';
+
+            % Create GridLayout6
+            app.GridLayout6 = uigridlayout(app.CameraTab);
+            app.GridLayout6.ColumnWidth = {'1x'};
+            app.GridLayout6.RowHeight = {'1x'};
+
+            % Create InternalWaveTab
+            app.InternalWaveTab = uitab(app.TabGroup);
+            app.InternalWaveTab.Title = 'Internal Wave';
+
+            % Create GridLayout5_3
+            app.GridLayout5_3 = uigridlayout(app.InternalWaveTab);
+            app.GridLayout5_3.ColumnWidth = {'1x'};
+            app.GridLayout5_3.RowHeight = {'1x'};
+
+            % Create StratificationTab
+            app.StratificationTab = uitab(app.TabGroup);
+            app.StratificationTab.Title = 'Stratification';
+
+            % Create GridLayout5_4
+            app.GridLayout5_4 = uigridlayout(app.StratificationTab);
+            app.GridLayout5_4.ColumnWidth = {'1x'};
+            app.GridLayout5_4.RowHeight = {'1x'};
+
+            % Show the figure after all components are created
+            app.IceexperimentsUIFigure.Visible = 'on';
+        end
+    end
+
+    % App creation and deletion
+    methods (Access = public)
+
+        % Construct app
+        function app = app_experiment
+
+            runningApp = getRunningApp(app);
+
+            % Check for running singleton app
+            if isempty(runningApp)
+
+                % Create UIFigure and components
+                createComponents(app)
+
+                % Register the app with App Designer
+                registerApp(app, app.IceexperimentsUIFigure)
+
+                % Execute the startup function
+                runStartupFcn(app, @startupFcn)
+            else
+
+                % Focus the running singleton app
+                figure(runningApp.IceexperimentsUIFigure)
+
+                app = runningApp;
+            end
+
+            if nargout == 0
+                clear app
+            end
+        end
+
+        % Code that executes before app deletion
+        function delete(app)
+
+            % Delete UIFigure when app is deleted
+            delete(app.IceexperimentsUIFigure)
+        end
+    end
+end]]></w:t></w:r></w:p></w:body></w:document>

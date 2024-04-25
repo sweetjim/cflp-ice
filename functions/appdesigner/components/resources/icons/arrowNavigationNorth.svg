@@ -1,0 +1,4 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.5 15.5L10.5 15.5L10.5 9.5L14.5 9.5L8 1.5L1.5 9.5L5.5 9.5L5.5 15.5Z" fill="var(--mw-icon-background-default-selection, #B4DEFF)" stroke="var(--mw-icon-border-default-blue, #1656A7)"/>
+<use href="#arrowNavigationNorth" />
+</svg>

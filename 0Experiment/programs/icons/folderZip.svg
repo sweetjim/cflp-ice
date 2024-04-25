@@ -1,0 +1,11 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.5 3C0.5 2.72386 0.723858 2.5 1 2.5H5.86496C6.16174 2.5 6.44319 2.63182 6.63318 2.85982L7.70015 4.14018C7.89015 4.36818 8.1716 4.5 8.46837 4.5H15C15.2761 4.5 15.5 4.72386 15.5 5V7.8355V13C15.5 13.2761 15.2761 13.5 15 13.5H1C0.723858 13.5 0.5 13.2761 0.5 13V3Z" fill="var(--mw-icon-background-light-yellow, #FFF5BC)" stroke="#674C06"/>
+<rect x="9" y="4" width="4" height="7" fill="var(--mw-icon-glyph-content-dark-gray, #333333)"/>
+<rect x="11" y="5" width="1" height="1" fill="var(--mw-icon-background-default-medium-gray, #D9D9D9)"/>
+<rect x="11" y="7" width="1" height="1" fill="var(--mw-icon-background-default-medium-gray, #D9D9D9)"/>
+<rect x="11" y="9" width="1" height="1" fill="var(--mw-icon-background-default-medium-gray, #D9D9D9)"/>
+<rect x="10" y="6" width="1" height="1" fill="var(--mw-icon-background-default-medium-gray, #D9D9D9)"/>
+<rect x="10" y="8" width="1" height="1" fill="var(--mw-icon-background-default-medium-gray, #D9D9D9)"/>
+<path d="M9.5 15V11C9.5 10.7239 9.72386 10.5 10 10.5H12C12.2761 10.5 12.5 10.7239 12.5 11V15C12.5 15.2761 12.2761 15.5 12 15.5H10C9.72386 15.5 9.5 15.2761 9.5 15Z" fill="var(--mw-icon-background-default-medium-gray, #D9D9D9)" stroke="var(--mw-icon-border-default-gray, #616161)" stroke-linecap="round"/>
+<rect x="10" y="14" width="2" height="1" fill="var(--mw-icon-background-default-dark-gray, #A6A6A6)"/>
+<use href="#folderZip"/></svg>

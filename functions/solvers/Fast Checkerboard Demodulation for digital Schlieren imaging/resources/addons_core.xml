@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addonCore>
+  <label>Fast Checkerboard Demodulation for digital Schlieren imaging</label>
+  <version>1.0.0.1</version>
+  <type>zip</type>
+  <identifier>4498f82a-ce8a-4b88-a2d4-dcc48341e769</identifier>
+  <createdBy name="S Wildeman"/>
+  <image>resources/screenshot.png</image>
+</addonCore>

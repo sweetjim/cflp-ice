@@ -1,0 +1,23 @@
+{
+  "_schemaVersion": "1.0.0",
+  "iw_iterate":
+  {
+     "inputs":
+     [
+         {"name":"H","kind":"ordered", "type":["numeric"],"purpose":"Depth of fluid (m)"},
+         {"name":"L","kind":"ordered", "type":["numeric"],"purpose":"Length of fluid (m)"},
+         {"name":"k0","kind":"ordered", "type":["numeric"],"purpose":"Fundamental wavenumber (1/m)"},
+         {"name":"res","kind":"ordered", "type":["numeric"],"purpose":"Resolution of fluid (m)"},
+         {"name":"dt","kind":"ordered", "type":["numeric"],"purpose":"Time resolution (s)"},
+         {"name":"h","kind":"ordered", "type":["numeric"],"purpose":"Height of wavemaker (m)"},
+         {"name":"N","kind":"ordered", "type":["numeric"],"purpose":"Buoyancy frequency (rad/s)"},
+         {"name":"u","kind":"ordered", "type":["numeric"],"purpose":"Background flow speed (m/s)"},
+         {"name":"ut","kind":"ordered", "type":["numeric"],"purpose":"Tidal amplitude (m/s)"},
+         {"name":"f","kind":"ordered", "type":["numeric"],"purpose":"Coriolis parameter (rad/s)"},
+         {"name":"nu","kind":"ordered", "type":["numeric"],"purpose":"Viscosity (m2/s)"},
+         {"name":"n","kind":"ordered", "type":["numeric"],"purpose":"Harmonics upper limit"},
+         {"name":"alpha0","kind":"ordered", "type":["numeric"],"purpose":"Harmonic regime"},
+         {"name":"omega","kind":"ordered", "type":["numeric"],"purpose":"Forcing frequency (rad/s)"}
+     ]
+  }
+}

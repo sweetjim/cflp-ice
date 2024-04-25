@@ -1,0 +1,5 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.5 5.5L0.5 10.5H4.5L4.5 14.5L12.5 8L4.5 1.5L4.5 5.5L0.5 5.5Z" fill="var(--mw-icon-background-default-selection, #B4DEFF)" stroke="var(--mw-icon-border-default-blue, #1656A7)"/>
+<path d="M12.5 14L12.5 2C12.5 1.72386 12.7239 1.5 13 1.5L15 1.5C15.2761 1.5 15.5 1.72386 15.5 2L15.5 14C15.5 14.2761 15.2761 14.5 15 14.5H13C12.7239 14.5 12.5 14.2761 12.5 14Z" fill="var(--mw-icon-background-default-selection, #B4DEFF)" stroke="var(--mw-icon-border-default-blue, #1656A7)" stroke-linecap="round" stroke-linejoin="round"/>
+<use href="#arrowGoTo" />
+</svg>

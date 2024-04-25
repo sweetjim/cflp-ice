@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addonCore>
+  <label>Basler camera driver</label>
+  <version>1.4.0.0</version>
+  <type>zip</type>
+  <identifier>519192cd-7743-43c1-aa1a-05f787bf6f90</identifier>
+  <createdBy name="hb1294982"/>
+  <image>resources/screenshot.png</image>
+</addonCore>

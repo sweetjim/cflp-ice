@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<struct>
+    <leftSide>
+        <Rot>0</Rot>
+        <ShiftX>0</ShiftX>
+        <ShiftY>0</ShiftY>
+        <FlipLR>false</FlipLR>
+        <FlipUD>false</FlipUD>
+    </leftSide>
+    <rightSide>
+        <Rot>2</Rot>
+        <ShiftX>0</ShiftX>
+        <ShiftY>0</ShiftY>
+        <FlipLR>false</FlipLR>
+        <FlipUD>false</FlipUD>
+    </rightSide>
+    <catDirection>2</catDirection>
+</struct>

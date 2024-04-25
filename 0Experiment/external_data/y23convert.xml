@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<struct>
+    <H_m>0.05</H_m>
+    <DTa_K>20</DTa_K>
+    <beta>0.000387</beta>
+    <tff_s>@(H,beta,DT)sqrt(H/(9.81*beta*DT))</tff_s>
+    <tff0_s>392.1392</tff0_s>
+    <t_half_V_0_tff>108</t_half_V_0_tff>
+    <f0>1.2751e-05</f0>
+</struct>

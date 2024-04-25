@@ -1,0 +1,14 @@
+{
+    "labExperiment.labExperiment":
+    {"inputs":
+     [
+        {"name":"file2load","kind":"ordered","type":["file=*.mat"]}
+     ]
+    },
+    "labExperiment.testFcn":
+    {"inputs":
+     [
+        {"name":"arg","kind":"required","type":["choices={'test','trial'}"]}
+     ]
+    }
+}

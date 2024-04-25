@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<struct>
+    <Rot>1</Rot>
+    <ROI>1</ROI>
+    <ROI>1</ROI>
+    <ROI>3088</ROI>
+    <ROI>2064</ROI>
+    <ds>0.0003962</ds>
+    <command>@(camera_handle,userdata)rot90(imcrop(getsnapshot(camera_handle),userdata.ROI),userdata.Rot)</command>
+</struct>

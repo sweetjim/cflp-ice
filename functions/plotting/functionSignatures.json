@@ -1,0 +1,77 @@
+{
+    "_schemaVersion": "1.0.0",
+    "cmocean":
+    {
+        "inputs":
+        [
+            {"name":"ColormapName",     "kind":"required",  "type":["char","choices={'thermal','balance','haline','delta','solar','curl','ice','diff','gray','tarn','oxy','deep','dense','phase','algae','matter','turbid','topo','speed','amp','tempo','rain','balance','curl','diff','tarn'}"]},
+            {"name":"NLevels",          "kind":"ordered",   "type":["numeric",">0","choices={3,5,10}"]},
+            {"tuple":
+             [
+                 {"name":"negativeColormap", "kind":"ordered",   "type":["char","choices={'negative'}"]},
+                 {"name":"pivot",            "kind":"namevalue", "type":["numeric","choices={0}"]}
+             ], "repeating":false
+            }
+        ]
+    },
+"Tag2Legend":
+{
+    "inputs":
+    [
+        {"name":"ax", "kind":"ordered", "type":"matlab.graphics.axis.AbstractAxes"},
+        {"name":"label", "kind":"required", "type":[["char", "~string"], ["string", "~char", "scalar"]], "repeating":true},
+        {"name":"Location", "kind":"namevalue", "type":"choices={'north','south','east', 'west','northeast','southeast','northwest','southwest','northoutside','southoutside','eastoutside','westoutside','northeastoutside','southeastoutside','northwestoutside','southwestoutside','best','bestoutside'}"},
+        {"name":"Orientation", "kind":"namevalue", "type":"choices={'horizontal','vertical'}"}
+    ],
+    "outputs":
+    [
+        {"name":"leg", "type":"matlab.graphics.illustration.Legend"}
+    ]
+},
+"subAxes":
+{
+    "inputs":
+    [
+        {"name":"parent", "kind":"ordered", "type":["matlab.graphics.layout.TiledChartLayout"], "purpose":"Parent container"},
+        {"name":"index", "kind":"ordered", "type":["numeric",">0"], "purpose":"Tile index"},
+        {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"m", "kind":"required", "type":["numeric",">=1"], "purpose":"Number of rows"},
+                    {"name":"n", "kind":"required", "type":["numeric",">=1"], "purpose":"Number of columns"}
+                ],
+                [
+                    {"name":"'flow'", "kind":"required", "type":"choices={'flow'}", "purpose":"Flow tile arrangement"}
+                ],
+                [
+                    {"name":"'horizontal'", "kind":"required", "type":"choices={'horizontal'}", "purpose":"Horizontal tile arrangement"}
+                ],
+                [
+                    {"name":"'vertical'", "kind":"required", "type":"choices={'vertical'}", "purpose":"Vertical tile arrangement"}
+                ]
+            ]
+        },
+        {"name":"Options", "kind":"properties", "type":"matlab.graphics.layout.TiledChartLayout"}
+    ],
+    "outputs":
+    [
+        {"name":"Layout", "type":"matlab.graphics.layout.Layout"}
+    ]
+},
+    "shadedErrorBarPoly":
+    {
+        "inputs":
+        [
+            {"name":"x","kind":"required","type":["numeric","vector","row","column"],"purpose":"indepednent variable (1xn or nx1 vector)"},
+            {"name":"y","kind":"required","type":["numeric","vector","row","column"],"purpose":"dependent variable (nx2 or 2xn matrix)"},
+            {"tuple":
+             [
+                 {"name":"ax","kind":"ordered","type":["@ishandle"],"purpose":"axes to plot to (default is gca)"},
+                 {"name":"direction","kind":"namevalue","type":["char","choices={'x','y'}"],"purpose":"direction of independent variable (default is 'x')"},
+                 {"name":"color","kind":"namevalue","type":["char","double","row","choices={'k','b','r','g','c','m','w'}"],"purpose":"shading color (default is 'r')"},
+                 {"name":"facealpha","kind":"namevalue","type":"double","purpose":"shading facealpha (default is 0.1)"},
+                 {"name":"edgealpha","kind":"namevalue","type":"double","purpose":"shading edgealpha (default is 0.1)"}
+             ], "repeating":true}
+        ]
+    }
+}

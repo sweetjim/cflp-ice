@@ -1,0 +1,16 @@
+{
+	"iwdata":
+	{
+		"inputs":[
+			{"name":"label","kind":"positional","type":["char"]},
+			{"name":"random","kind":"namevalue","type":["logical"]}
+		]
+	},
+	"iwdata.ncoutput":
+	{
+		"inputs":[
+			{"name":"obj","kind":"required","type":"foo"},
+			{"name":"filter","kind":"flag","type":"choices={'numbers','strings'}"}
+		]
+	}
+}

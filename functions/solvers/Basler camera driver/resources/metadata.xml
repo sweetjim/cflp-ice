@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addOn>
+  <identifier>519192cd-7743-43c1-aa1a-05f787bf6f90</identifier>
+  <displayType>Collection</displayType>
+  <translatedDisplayType>
+    <en_US>Collection</en_US>
+    <ja_JP>コレクション</ja_JP>
+    <ko_KR>컬렉션</ko_KR>
+    <zh_CN>集合</zh_CN>
+  </translatedDisplayType>
+  <name>Basler camera driver</name>
+  <author>hb1294982</author>
+  <version>1.4.0.0</version>
+  <downloadUrl>https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/519192cd-7743-43c1-aa1a-05f787bf6f90/ae779a52-b851-aafd-9e0f-cd6f825d7ffe/packages/zip?src=addons_ml_desktop_install&amp;profile_id=17446418&amp;license=869859&amp;release_family=R2021a</downloadUrl>
+  <licenseUrl>https://addons.mathworks.com/registry/v1/519192cd-7743-43c1-aa1a-05f787bf6f90/1.4.0.0/-/license</licenseUrl>
+  <previewImageUrl>https://www.mathworks.com/responsive_image/160/120/0/0/0/cache/matlabcentral/mlc-downloads/downloads/submissions/50681/versions/5/screenshot.jpg</previewImageUrl>
+  <releaseNotesUrl>https://www.mathworks.com/add-ons/519192cd-7743-43c1-aa1a-05f787bf6f90/ae779a52-b851-aafd-9e0f-cd6f825d7ffe/releaseNotes</releaseNotesUrl>
+  <installationFolder>Collections</installationFolder>
+</addOn>

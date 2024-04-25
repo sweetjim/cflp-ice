@@ -1,0 +1,10 @@
+{
+  "_schemaVersion": "1.0.0",
+  "windowsSound":
+  {
+     "inputs":
+     [
+        {"name":"label", "kind":"ordered", "type":["char", "choices={'notify','ding','error','warning'}"]}
+     ]
+  }
+}

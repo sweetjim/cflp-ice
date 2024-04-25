@@ -1,0 +1,13 @@
+{
+  "_schemaVersion": "1.0.0",
+  "scheduleTime":
+  {
+     "inputs":
+     [
+        {"name":"dd", "kind":"ordered", "type":["char","numeric","choices={'now','today','tomorrow'}"],"purpose":"Relative day"},
+        {"name":"hh", "kind":"ordered", "type":"numeric","purpose":"Hour of the day"},
+        {"name":"mm", "kind":"ordered", "type":"numeric","purpose":"Minute of the hour"},
+        {"name":"ss", "kind":"ordered", "type":"numeric","purpose":"Second of the minute"}
+     ]
+  }
+}

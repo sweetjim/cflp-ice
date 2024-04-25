@@ -1,0 +1,14 @@
+*.txt
+*.csv
+*.MATLABDriveTag
+functions/ice/
+functions/gui/
+functions/appdesigner_versions/
+functions/solvers/PIVMat 4.20/
+functions/solvers/Multi-Fractal Analysis
+functions/solvers/Image Manipulation Toolbox/
+functions/solvers/Seven-Segment-Digit-Recognition-main/
+labview_logs/calibration/
+labview_logs/profile/
+labview_logs/mixing_setpoints/
+labview_logs/raw_data/

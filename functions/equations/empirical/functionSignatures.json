@@ -1,0 +1,67 @@
+{
+    "_schemaVersion": "1.0.0",
+    "liquidus":
+    {
+        "inputs":
+        [
+            {"name":"TargetVariable",   "kind":"required",  "type":["char","choices={'T','S'}"]},
+            {"name":"TargetValue",      "kind":"required",  "type":["numeric",">0","choices={0}"]},
+            {"name":"Method",           "kind":"ordered",   "type":["char","choices={'polynomial','linear'}"]}
+        ]
+    },
+    "property":
+    {
+        "inputs":
+        [
+          {"mutuallyExclusiveGroup":
+              [
+                [
+                   {"name":"Component","kind":"ordered","type":["char","choices={'ice','water'}"]},
+                   {"tuple":
+                     [
+                        {"name":"Property","kind":"ordered","type":["char","choices={'rho','K','cp','kappaT','kappaTf','kappaS','nu'}"]},
+                        {"name":"Temperature","kind":"namevalue","type":["numeric"]}
+                        
+                     ],"repeating":false}
+                ],
+                [
+                  {"name":"Component","kind":"ordered","type":["char","choices={'L','LL','StT','StS'}"]}
+                ]
+              ]
+            }
+            
+        ]
+    },
+    "plu":
+    {
+        "inputs":
+        [
+          {"mutuallyExclusiveGroup":
+              [
+                [
+                   {"name":"Component","kind":"ordered","type":["char","choices={'ice','water'}"]},
+                   {"tuple":
+                     [
+                        {"name":"Property","kind":"ordered","type":["char","choices={'rho','K','cp','kappaT','kappaTf','kappaS','nu'}"]},
+                        {"name":"Temperature","kind":"namevalue","type":["numeric"]}
+                        
+                     ],"repeating":false}
+                ],
+                [
+                  {"name":"Component","kind":"ordered","type":["char","choices={'L','LL','StT','StS'}"]}
+                ]
+              ]
+            }
+            
+        ]
+    },
+    "density_find":
+    {
+        "inputs":
+        [
+          {"name":"var_str","kind":"required","type":["char","choices={'S','T'}"],"purpose":"Paramater to find"},
+          {"name":"alt_var_tgt","kind":"required","type":["double"],"purpose":"Alternative parameter value to use"},
+          {"name":"density_tgt","kind":"required","type":["double"],"purpose":"Target density to find (kg/m3)"}
+        ]
+    }
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addOn>
+  <identifier>e5605126-4a80-11e4-9553-005056977bd0</identifier>
+  <displayType>Collection</displayType>
+  <translatedDisplayType>
+    <en_US>Collection</en_US>
+    <es_ES>Collection</es_ES>
+    <es_MX>Collection</es_MX>
+    <ja_JP>コレクション</ja_JP>
+    <ko_KR>컬렉션</ko_KR>
+    <zh_CN>集合</zh_CN>
+  </translatedDisplayType>
+  <name>Horn-Schunck Optical Flow Method</name>
+  <author>Mohd Kharbat</author>
+  <version>1.1.0.0</version>
+  <downloadUrl>https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/22756/versions/2/download/zip?src=addons_ml_desktop_install&amp;profile_id=17446418&amp;license=869859&amp;release_family=R2021a</downloadUrl>
+  <licenseUrl>https://addons.mathworks.com/registry/v1/e5605126-4a80-11e4-9553-005056977bd0/1.1.0.0/-/license</licenseUrl>
+  <previewImageUrl>https://www.mathworks.com/responsive_image/160/120/0/0/0/cache/matlabcentral/mlc-downloads/downloads/submissions/22756/versions/2/screenshot.JPG</previewImageUrl>
+  <releaseNotesUrl>https://www.mathworks.com/add-ons/e5605126-4a80-11e4-9553-005056977bd0/d6d0f445-ef43-38ab-a648-d1a13936743c/releaseNotes</releaseNotesUrl>
+  <installationFolder>Collections</installationFolder>
+</addOn>

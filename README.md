@@ -32,9 +32,14 @@ A suite of mostly self-contained classes are used to operate the general program
 # Screenshots
 _**app_experiment**_
 ![im2](https://github.com/sweetjim/cflp-ice/assets/60765374/695e8baf-ec8c-4842-a883-36d56120e04c)
+![im3](https://github.com/sweetjim/cflp-ice/assets/60765374/3c86cebd-a215-4b91-9dc1-ae2f9081754e)
 ![im4a](https://github.com/sweetjim/cflp-ice/assets/60765374/da7d7bdb-64de-4e41-8643-acd85eba88ef)
 ![im4b](https://github.com/sweetjim/cflp-ice/assets/60765374/66271d55-0fa2-4613-bb07-f8bc73fbca62)
 ![im5](https://github.com/sweetjim/cflp-ice/assets/60765374/ff33eff3-eb8f-48e8-933c-1c4d263689ed)
 ![im6](https://github.com/sweetjim/cflp-ice/assets/60765374/405a1f65-80ac-4bee-a13a-695622db6b94)
 ![im7](https://github.com/sweetjim/cflp-ice/assets/60765374/87c76d78-e3d8-4bf0-adec-6da7e0fc2a25)
-![im3](https://github.com/sweetjim/cflp-ice/assets/60765374/3c86cebd-a215-4b91-9dc1-ae2f9081754e)	
+_**app_meltingDetection**_
+![im1](https://github.com/sweetjim/cflp-ice/assets/60765374/480517fe-3179-4482-9715-40ab8549ea41)
+_**app_waveDetection**_
+![im2](https://github.com/sweetjim/cflp-ice/assets/60765374/ddba2bf9-7f36-4e24-96cf-793f0b5c8935)
+	

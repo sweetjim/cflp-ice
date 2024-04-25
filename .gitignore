@@ -1,6 +1,14 @@
 *.txt
 *.csv
+*.png
+*.avi
+*.tiff
+*.tif
+*confict_copy*
 *.MATLABDriveTag
+0Experiment/experimentdata/
+0Experiment/external_data/
+0Experiment/IWs/reference_patterns/
 functions/ice/
 functions/gui/
 functions/appdesigner_versions/
